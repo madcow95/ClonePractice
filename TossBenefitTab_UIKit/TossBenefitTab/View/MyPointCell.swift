@@ -18,4 +18,5 @@ class MyPointCell: UICollectionViewCell {
         descriptionLabel.text = "내 포인트"
         pointLabel.text = "\(item.point) 원"
     }
+    
 }
