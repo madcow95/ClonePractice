@@ -15,6 +15,13 @@
 		94BD336D285D5CA1008DA3B7 /* TossBenefitTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD336C285D5CA1008DA3B7 /* TossBenefitTabTests.swift */; };
 		94BD3377285D5CA1008DA3B7 /* TossBenefitTabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD3376285D5CA1008DA3B7 /* TossBenefitTabUITests.swift */; };
 		94BD3379285D5CA1008DA3B7 /* TossBenefitTabUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD3378285D5CA1008DA3B7 /* TossBenefitTabUITestsLaunchTests.swift */; };
+		CD6F9B6529D1B22D005066AD /* BenefitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B6429D1B22D005066AD /* BenefitListViewController.swift */; };
+		CD6F9B6729D1B3D5005066AD /* Benefit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B6629D1B3D5005066AD /* Benefit.swift */; };
+		CD6F9B6929D1B3DC005066AD /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B6829D1B3DC005066AD /* MyPoint.swift */; };
+		CD6F9B6D29D1B545005066AD /* MyPointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B6C29D1B545005066AD /* MyPointCell.swift */; };
+		CD6F9B6F29D1B554005066AD /* TodayBenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B6E29D1B554005066AD /* TodayBenefitCell.swift */; };
+		CD6F9B7129D1B564005066AD /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B7029D1B564005066AD /* BenefitCell.swift */; };
+		CD6F9B7329D1B7E7005066AD /* TodaySectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		94BD3372285D5CA1008DA3B7 /* TossBenefitTabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TossBenefitTabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BD3376285D5CA1008DA3B7 /* TossBenefitTabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossBenefitTabUITests.swift; sourceTree = "<group>"; };
 		94BD3378285D5CA1008DA3B7 /* TossBenefitTabUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossBenefitTabUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CD6F9B6429D1B22D005066AD /* BenefitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitListViewController.swift; sourceTree = "<group>"; };
+		CD6F9B6629D1B3D5005066AD /* Benefit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefit.swift; sourceTree = "<group>"; };
+		CD6F9B6829D1B3DC005066AD /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		CD6F9B6C29D1B545005066AD /* MyPointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointCell.swift; sourceTree = "<group>"; };
+		CD6F9B6E29D1B554005066AD /* TodayBenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBenefitCell.swift; sourceTree = "<group>"; };
+		CD6F9B7029D1B564005066AD /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
+		CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +113,8 @@
 			children = (
 				94BD3355285D5C9E008DA3B7 /* AppDelegate.swift */,
 				94BD3357285D5C9E008DA3B7 /* SceneDelegate.swift */,
-				94BD335B285D5C9E008DA3B7 /* Main.storyboard */,
+				CD6F9B6B29D1B3F7005066AD /* View */,
+				CD6F9B6A29D1B3E9005066AD /* Model */,
 				94BD335E285D5CA1008DA3B7 /* Assets.xcassets */,
 				94BD3360285D5CA1008DA3B7 /* LaunchScreen.storyboard */,
 				94BD3363285D5CA1008DA3B7 /* Info.plist */,
@@ -122,6 +137,28 @@
 				94BD3378285D5CA1008DA3B7 /* TossBenefitTabUITestsLaunchTests.swift */,
 			);
 			path = TossBenefitTabUITests;
+			sourceTree = "<group>";
+		};
+		CD6F9B6A29D1B3E9005066AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD6F9B6629D1B3D5005066AD /* Benefit.swift */,
+				CD6F9B6829D1B3DC005066AD /* MyPoint.swift */,
+				CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD6F9B6B29D1B3F7005066AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94BD335B285D5C9E008DA3B7 /* Main.storyboard */,
+				CD6F9B6429D1B22D005066AD /* BenefitListViewController.swift */,
+				CD6F9B6C29D1B545005066AD /* MyPointCell.swift */,
+				CD6F9B6E29D1B554005066AD /* TodayBenefitCell.swift */,
+				CD6F9B7029D1B564005066AD /* BenefitCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6F9B6929D1B3DC005066AD /* MyPoint.swift in Sources */,
+				CD6F9B7329D1B7E7005066AD /* TodaySectionItem.swift in Sources */,
+				CD6F9B7129D1B564005066AD /* BenefitCell.swift in Sources */,
+				CD6F9B6529D1B22D005066AD /* BenefitListViewController.swift in Sources */,
+				CD6F9B6729D1B3D5005066AD /* Benefit.swift in Sources */,
+				CD6F9B6F29D1B554005066AD /* TodayBenefitCell.swift in Sources */,
 				94BD3356285D5C9E008DA3B7 /* AppDelegate.swift in Sources */,
+				CD6F9B6D29D1B545005066AD /* MyPointCell.swift in Sources */,
 				94BD3358285D5C9E008DA3B7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
