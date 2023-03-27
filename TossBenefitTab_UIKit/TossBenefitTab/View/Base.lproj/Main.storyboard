@@ -124,6 +124,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="250"/>
+                                        <connections>
+                                            <outlet property="ctaButton" destination="9Q0-g7-LT9" id="q16-dl-Ghx"/>
+                                            <outlet property="titleLabel" destination="02J-l1-p44" id="zy1-Ct-bLb"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BenefitCell" id="16D-Ib-UsM" customClass="BenefitCell" customModule="TossBenefitTab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="390" width="414" height="120"/>
@@ -164,6 +168,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="120"/>
+                                        <connections>
+                                            <outlet property="benefitImage" destination="fki-yH-dNo" id="kjZ-Fr-EHs"/>
+                                            <outlet property="descriptionLabel" destination="mDE-R9-xA9" id="cdH-oU-M58"/>
+                                            <outlet property="titleLabel" destination="hVm-qI-0ZB" id="QpQ-2M-PLG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
