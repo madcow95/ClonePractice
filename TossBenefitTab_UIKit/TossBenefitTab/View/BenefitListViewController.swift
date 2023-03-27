@@ -44,6 +44,7 @@ class BenefitListViewController: UIViewController {
         datasource.apply(snapshot)
         
         collectionView.collectionViewLayout = layout()
+        collectionView.delegate = self
         
         navigationItem.title = "혜택"
     }
@@ -90,5 +91,12 @@ class BenefitListViewController: UIViewController {
         section.interGroupSpacing = spacing
         
         return UICollectionViewCompositionalLayout(section: section)
+    }
+}
+
+extension BenefitListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = datasource.itemIdentifier(for: indexPath)
+        print("grid Tapped! >> \(item)")
     }
 }
