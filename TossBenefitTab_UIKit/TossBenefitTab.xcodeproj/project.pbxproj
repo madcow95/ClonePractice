@@ -22,6 +22,8 @@
 		CD6F9B6F29D1B554005066AD /* TodayBenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B6E29D1B554005066AD /* TodayBenefitCell.swift */; };
 		CD6F9B7129D1B564005066AD /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B7029D1B564005066AD /* BenefitCell.swift */; };
 		CD6F9B7329D1B7E7005066AD /* TodaySectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */; };
+		CDBF181429D307C900A5C8A2 /* MyPoint.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDBF181329D307C900A5C8A2 /* MyPoint.storyboard */; };
+		CDBF181629D307DC00A5C8A2 /* MyPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF181529D307DC00A5C8A2 /* MyPointViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		CD6F9B6E29D1B554005066AD /* TodayBenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBenefitCell.swift; sourceTree = "<group>"; };
 		CD6F9B7029D1B564005066AD /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionItem.swift; sourceTree = "<group>"; };
+		CDBF181329D307C900A5C8A2 /* MyPoint.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPoint.storyboard; sourceTree = "<group>"; };
+		CDBF181529D307DC00A5C8A2 /* MyPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			children = (
 				94BD3355285D5C9E008DA3B7 /* AppDelegate.swift */,
 				94BD3357285D5C9E008DA3B7 /* SceneDelegate.swift */,
+				CDBF181729D307E200A5C8A2 /* MyPointView */,
 				CD6F9B6B29D1B3F7005066AD /* View */,
 				CD6F9B6A29D1B3E9005066AD /* Model */,
 				94BD335E285D5CA1008DA3B7 /* Assets.xcassets */,
@@ -159,6 +164,15 @@
 				CD6F9B7029D1B564005066AD /* BenefitCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CDBF181729D307E200A5C8A2 /* MyPointView */ = {
+			isa = PBXGroup;
+			children = (
+				CDBF181329D307C900A5C8A2 /* MyPoint.storyboard */,
+				CDBF181529D307DC00A5C8A2 /* MyPointViewController.swift */,
+			);
+			path = MyPointView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BD3362285D5CA1008DA3B7 /* LaunchScreen.storyboard in Resources */,
+				CDBF181429D307C900A5C8A2 /* MyPoint.storyboard in Resources */,
 				94BD335F285D5CA1008DA3B7 /* Assets.xcassets in Resources */,
 				94BD335D285D5C9E008DA3B7 /* Main.storyboard in Resources */,
 			);
@@ -301,6 +316,7 @@
 				94BD3356285D5C9E008DA3B7 /* AppDelegate.swift in Sources */,
 				CD6F9B6D29D1B545005066AD /* MyPointCell.swift in Sources */,
 				94BD3358285D5C9E008DA3B7 /* SceneDelegate.swift in Sources */,
+				CDBF181629D307DC00A5C8A2 /* MyPointViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
