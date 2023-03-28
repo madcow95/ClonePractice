@@ -23,7 +23,7 @@
 		CD6F9B7129D1B564005066AD /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B7029D1B564005066AD /* BenefitCell.swift */; };
 		CD6F9B7329D1B7E7005066AD /* TodaySectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */; };
 		CDBF181429D307C900A5C8A2 /* MyPoint.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDBF181329D307C900A5C8A2 /* MyPoint.storyboard */; };
-		CDBF181629D307DC00A5C8A2 /* MyPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF181529D307DC00A5C8A2 /* MyPointViewController.swift */; };
+		CDBF181929D3097C00A5C8A2 /* MyPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF181829D3097C00A5C8A2 /* MyPointViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 		CD6F9B7029D1B564005066AD /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		CD6F9B7229D1B7E7005066AD /* TodaySectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionItem.swift; sourceTree = "<group>"; };
 		CDBF181329D307C900A5C8A2 /* MyPoint.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPoint.storyboard; sourceTree = "<group>"; };
-		CDBF181529D307DC00A5C8A2 /* MyPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointViewController.swift; sourceTree = "<group>"; };
+		CDBF181829D3097C00A5C8A2 /* MyPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				CDBF181329D307C900A5C8A2 /* MyPoint.storyboard */,
-				CDBF181529D307DC00A5C8A2 /* MyPointViewController.swift */,
+				CDBF181829D3097C00A5C8A2 /* MyPointViewController.swift */,
 			);
 			path = MyPointView;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				94BD3356285D5C9E008DA3B7 /* AppDelegate.swift in Sources */,
 				CD6F9B6D29D1B545005066AD /* MyPointCell.swift in Sources */,
 				94BD3358285D5C9E008DA3B7 /* SceneDelegate.swift in Sources */,
-				CDBF181629D307DC00A5C8A2 /* MyPointViewController.swift in Sources */,
+				CDBF181929D3097C00A5C8A2 /* MyPointViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
