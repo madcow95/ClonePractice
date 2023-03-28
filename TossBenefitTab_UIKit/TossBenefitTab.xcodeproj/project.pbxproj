@@ -27,6 +27,7 @@
 		CDBF181B29D30E5600A5C8A2 /* ButtonBenefit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDBF181A29D30E5600A5C8A2 /* ButtonBenefit.storyboard */; };
 		CDBF181D29D30E6200A5C8A2 /* ButtonBenefitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF181C29D30E6200A5C8A2 /* ButtonBenefitViewController.swift */; };
 		CDBF182029D30EDE00A5C8A2 /* BenefitDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF181F29D30EDE00A5C8A2 /* BenefitDetail.swift */; };
+		CDBF182229D3144400A5C8A2 /* BenefitGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF182129D3144400A5C8A2 /* BenefitGuideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CDBF181A29D30E5600A5C8A2 /* ButtonBenefit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ButtonBenefit.storyboard; sourceTree = "<group>"; };
 		CDBF181C29D30E6200A5C8A2 /* ButtonBenefitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBenefitViewController.swift; sourceTree = "<group>"; };
 		CDBF181F29D30EDE00A5C8A2 /* BenefitDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDetail.swift; sourceTree = "<group>"; };
+		CDBF182129D3144400A5C8A2 /* BenefitGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitGuideView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				CDBF181C29D30E6200A5C8A2 /* ButtonBenefitViewController.swift */,
+				CDBF182129D3144400A5C8A2 /* BenefitGuideView.swift */,
 				CDBF181A29D30E5600A5C8A2 /* ButtonBenefit.storyboard */,
 			);
 			path = BenefitView;
@@ -337,6 +340,7 @@
 				CD6F9B6D29D1B545005066AD /* MyPointCell.swift in Sources */,
 				94BD3358285D5C9E008DA3B7 /* SceneDelegate.swift in Sources */,
 				CDBF181929D3097C00A5C8A2 /* MyPointViewController.swift in Sources */,
+				CDBF182229D3144400A5C8A2 /* BenefitGuideView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
