@@ -22,6 +22,7 @@ class ButtonBenefitViewController: UIViewController {
         setupUI()
         addGuides()
         
+        
         ctaButton.setTitle(benefit.ctaTitle, for: .normal)
     }
     
@@ -44,6 +45,7 @@ class ButtonBenefitViewController: UIViewController {
             self.vStackView.addArrangedSubview(view)
             NSLayoutConstraint.activate([
                 view.heightAnchor.constraint(equalToConstant: 60)
+                
             ])
         }
     }
