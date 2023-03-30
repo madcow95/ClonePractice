@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class BenefitListViewController: UIViewController {
 
@@ -21,22 +22,22 @@ class BenefitListViewController: UIViewController {
     
     var datasource: UICollectionViewDiffableDataSource<Section, Item>!
     
-    var todaySectionItems: [AnyHashable] = TodaySectionItem(point: .default, today: .today).sectionItems
-    var otherSectionItems: [AnyHashable] = Benefit.others
+//    var todaySectionItems: [AnyHashable] = TodaySectionItem(point: .default, today: .today).sectionItems
+//    var otherSectionItems: [AnyHashable] = Benefit.others
+    @Published var todaySectionItems: [AnyHashable] = []
+    @Published var otherSectionItems: [AnyHashable] = []
+    
+    var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datasource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
-            
-            guard let section = Section(rawValue: indexPath.section) else {
-                return nil
-            }
-            let cell = self.configuredCell(for: section, item: item, collectionView: collectionView, indexPath: indexPath)
-            
-            return cell
-        })
-        
+        configureCollectionView()
+        setupUI()
+        bind()
+    }
+    
+    private func setupUI() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.today, .other])
         snapshot.appendItems(todaySectionItems, toSection: .today)
@@ -47,6 +48,52 @@ class BenefitListViewController: UIViewController {
         collectionView.delegate = self
         
         navigationItem.title = "혜택"
+    }
+    
+    private func configureCollectionView() {
+        datasource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            
+            guard let section = Section(rawValue: indexPath.section) else {
+                return nil
+            }
+            let cell = self.configuredCell(for: section, item: item, collectionView: collectionView, indexPath: indexPath)
+            
+            return cell
+        })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // main thread에서 0.5초 후에 실행한다 network상으로 데이터를 받아올 때 이런식으로
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.todaySectionItems = TodaySectionItem(point: .default, today: .today).sectionItems
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.otherSectionItems = Benefit.others
+        }
+    }
+    
+    private func bind() {
+        $todaySectionItems
+            .receive(on: RunLoop.main)
+            .sink { items in
+                self.applySnapshot(items: items, section: .today)
+            }
+            .store(in: &subscriptions)
+        
+        $otherSectionItems
+            .receive(on: RunLoop.main)
+            .sink { items in
+                self.applySnapshot(items: items, section: .other)
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func applySnapshot(items: [Item], section: Section) {
+        var snapshot = datasource.snapshot()
+        snapshot.appendItems(items, toSection: section)
+        datasource.apply(snapshot)
     }
     
     private func configuredCell(for section: Section, item: Item, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell? {
