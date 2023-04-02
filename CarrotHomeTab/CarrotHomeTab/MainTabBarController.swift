@@ -19,15 +19,23 @@ class MainTabBarController: UITabBarController {
           - 감지 후 그 탭의 title을 가져온다
           - Navigation Bar를 업데이트
          */
-           
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hello", style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: nil, action: nil)
         delegate = self
         
+    }
+    
+    private func updateNavigationItem(vc: UIViewController) {
         
     }
 }
-
+/**
+    Todo
+    - 각 탭에 맞게 Navigation Bar Item 구성
+    - 홈 : Title, Feed, Search
+    - 동네 활동 : Title, Feed
+    - 내 근처 : Title
+    - 채팅 : Title, Feed
+    - 내 정보: Title, Setting
+ */
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
@@ -35,38 +43,54 @@ extension MainTabBarController: UITabBarControllerDelegate {
         case is HomeViewController:
             
             let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
-            let customTitleView = CustomBarItem(config: titleConfig)
-            let titleItem = UIBarButtonItem(customView: customTitleView)
+            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
             
-//            let titleItem = UIBarButtonItem(title: "정자동", style: .plain, target: nil, action: nil)
-            let feedItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+            let searchConfig = CustomBarItemConfiguration(image: UIImage(systemName: "magnifyingglass"), handler: { print("search tapped") })
+            let searchItem = UIBarButtonItem.generate(with: searchConfig, width: 30)
+            
+            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
+            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+
             navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItem = feedItem
+            navigationItem.rightBarButtonItems = [feedItem, searchItem]
             
         case is MyTownViewController:
             
-            let titleItem = UIBarButtonItem(title: "정자동", style: .plain, target: nil, action: nil)
-            let feedItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+            let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
+            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+            
+            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
+            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+            
             navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItem = feedItem
+            navigationItem.rightBarButtonItems = [feedItem]
         case is ChatViewController:
             
-            let titleItem = UIBarButtonItem(title: "채팅", style: .plain, target: nil, action: nil)
-            let feedItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+            let titleConfig = CustomBarItemConfiguration(title: "채팅", handler: {})
+            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+            
+            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
+            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+                        
             navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItem = feedItem
+            navigationItem.rightBarButtonItems = [feedItem]
         case is MyProfileViewController:
             
-            let titleItem = UIBarButtonItem(title: "나의 당근", style: .plain, target: nil, action: nil)
-            let feedItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+            let titleConfig = CustomBarItemConfiguration(title: "나의 당근", handler: {})
+            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+            
+            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "gearshape"), handler: { print("setting tapped") })
+            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+            
             navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItem = feedItem
+            navigationItem.rightBarButtonItems = [feedItem]
         default:
             
-            let titleItem = UIBarButtonItem(title: "Default Carrot", style: .plain, target: nil, action: nil)
-            let feedItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+            let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
+            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+                        
             navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItem = feedItem
+            navigationItem.rightBarButtonItems = []
         }
         
     }
