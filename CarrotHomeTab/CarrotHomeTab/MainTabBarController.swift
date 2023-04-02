@@ -19,8 +19,12 @@ class MainTabBarController: UITabBarController {
           - 감지 후 그 탭의 title을 가져온다
           - Navigation Bar를 업데이트
          */
-               
+           
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hello", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: nil, action: nil)
         delegate = self
+        
+        
     }
 }
 
@@ -30,7 +34,11 @@ extension MainTabBarController: UITabBarControllerDelegate {
         switch viewController {
         case is HomeViewController:
             
-            let titleItem = UIBarButtonItem(title: "정자동", style: .plain, target: nil, action: nil)
+            let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
+            let customTitleView = CustomBarItem(config: titleConfig)
+            let titleItem = UIBarButtonItem(customView: customTitleView)
+            
+//            let titleItem = UIBarButtonItem(title: "정자동", style: .plain, target: nil, action: nil)
             let feedItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
             navigationItem.leftBarButtonItem = titleItem
             navigationItem.rightBarButtonItem = feedItem

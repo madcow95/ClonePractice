@@ -27,6 +27,7 @@
 		CD19766729D85F1C0098A35E /* MyTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19766629D85F1C0098A35E /* MyTownViewController.swift */; };
 		CD19766929D85F290098A35E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19766829D85F290098A35E /* MyProfileViewController.swift */; };
 		CD19766B29D85F300098A35E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19766A29D85F300098A35E /* ChatViewController.swift */; };
+		CDBA8BC729D9AED500DDADB7 /* CustomBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA8BC629D9AED500DDADB7 /* CustomBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CD19766629D85F1C0098A35E /* MyTownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTownViewController.swift; sourceTree = "<group>"; };
 		CD19766829D85F290098A35E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		CD19766A29D85F300098A35E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		CDBA8BC629D9AED500DDADB7 /* CustomBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				CD19766829D85F290098A35E /* MyProfileViewController.swift */,
 				CD19766A29D85F300098A35E /* ChatViewController.swift */,
 				CD19766229D852820098A35E /* MainTabBarController.swift */,
+				CDBA8BC629D9AED500DDADB7 /* CustomBarItem.swift */,
 				CD19765E29D851F10098A35E /* DetailViewController.swift */,
 				CD19766429D852C70098A35E /* Detail.storyboard */,
 				9402EE1528673FB100D33FDD /* Utils */,
@@ -331,6 +334,7 @@
 				CD19765D29D851D90098A35E /* HomeViewController.swift in Sources */,
 				CD19766B29D85F300098A35E /* ChatViewController.swift in Sources */,
 				CD19766729D85F1C0098A35E /* MyTownViewController.swift in Sources */,
+				CDBA8BC729D9AED500DDADB7 /* CustomBarItem.swift in Sources */,
 				9402EE1228673D9C00D33FDD /* Resource.swift in Sources */,
 				CD19765F29D851F10098A35E /* DetailViewController.swift in Sources */,
 			);
