@@ -21,10 +21,78 @@ class MainTabBarController: UITabBarController {
          */
         delegate = self
         
+        // self.selectedIndex
+        // self.selectedViewController
     }
     
-    private func updateNavigationItem(vc: UIViewController) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        updateNavigationItem(vc: self.selectedViewController!)
+    }
+    
+    // 화면 시작할 때 NavigationBar update
+    private func updateNavigationItem(vc: UIViewController) {
+            
+            switch vc {
+            case is HomeViewController:
+                
+                let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
+                let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+                
+                let searchConfig = CustomBarItemConfiguration(image: UIImage(systemName: "magnifyingglass"), handler: { print("search tapped") })
+                let searchItem = UIBarButtonItem.generate(with: searchConfig, width: 30)
+                
+                let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
+                let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+
+                navigationItem.leftBarButtonItem = titleItem
+                navigationItem.rightBarButtonItems = [feedItem, searchItem]
+                // 뒤로가기 버튼이 Back이 아닌 아이콘만 나오게 표시
+                navigationItem.backButtonDisplayMode = .minimal
+                
+            case is MyTownViewController:
+                
+                let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
+                let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+                
+                let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
+                let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+                
+                navigationItem.leftBarButtonItem = titleItem
+                navigationItem.rightBarButtonItems = [feedItem]
+                navigationItem.backButtonDisplayMode = .minimal
+            case is ChatViewController:
+                
+                let titleConfig = CustomBarItemConfiguration(title: "채팅", handler: {})
+                let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+                
+                let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
+                let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+                            
+                navigationItem.leftBarButtonItem = titleItem
+                navigationItem.rightBarButtonItems = [feedItem]
+                navigationItem.backButtonDisplayMode = .minimal
+            case is MyProfileViewController:
+                
+                let titleConfig = CustomBarItemConfiguration(title: "나의 당근", handler: {})
+                let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+                
+                let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "gearshape"), handler: { print("setting tapped") })
+                let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
+                
+                navigationItem.leftBarButtonItem = titleItem
+                navigationItem.rightBarButtonItems = [feedItem]
+                navigationItem.backButtonDisplayMode = .minimal
+            default:
+                
+                let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
+                let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
+                            
+                navigationItem.leftBarButtonItem = titleItem
+                navigationItem.rightBarButtonItems = []
+                navigationItem.backButtonDisplayMode = .minimal
+            }
     }
 }
 /**
@@ -38,60 +106,6 @@ class MainTabBarController: UITabBarController {
  */
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-        switch viewController {
-        case is HomeViewController:
-            
-            let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
-            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
-            
-            let searchConfig = CustomBarItemConfiguration(image: UIImage(systemName: "magnifyingglass"), handler: { print("search tapped") })
-            let searchItem = UIBarButtonItem.generate(with: searchConfig, width: 30)
-            
-            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
-            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
-
-            navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItems = [feedItem, searchItem]
-            
-        case is MyTownViewController:
-            
-            let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
-            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
-            
-            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
-            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
-            
-            navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItems = [feedItem]
-        case is ChatViewController:
-            
-            let titleConfig = CustomBarItemConfiguration(title: "채팅", handler: {})
-            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
-            
-            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "bell"), handler: { print("feed Item tapped") })
-            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
-                        
-            navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItems = [feedItem]
-        case is MyProfileViewController:
-            
-            let titleConfig = CustomBarItemConfiguration(title: "나의 당근", handler: {})
-            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
-            
-            let feedConfig = CustomBarItemConfiguration(image: UIImage(systemName: "gearshape"), handler: { print("setting tapped") })
-            let feedItem = UIBarButtonItem.generate(with: feedConfig, width: 30)
-            
-            navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItems = [feedItem]
-        default:
-            
-            let titleConfig = CustomBarItemConfiguration(title: "화곡동", handler: {})
-            let titleItem = UIBarButtonItem.generate(with: titleConfig, width: nil)
-                        
-            navigationItem.leftBarButtonItem = titleItem
-            navigationItem.rightBarButtonItems = []
-        }
-        
+        updateNavigationItem(vc: viewController)
     }
 }
