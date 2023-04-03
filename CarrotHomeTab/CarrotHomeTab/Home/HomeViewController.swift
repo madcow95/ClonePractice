@@ -10,20 +10,53 @@ import Combine
 
 class HomeViewController: UIViewController {
 
+    // UIViewCell 연결
+    @IBOutlet weak var collectionView: UICollectionView!
+    typealias Item = ItemInfo
+    enum Section {
+        case main
+    }
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    
     let viewModel: HomeViewModel = HomeViewModel(network: NetworkService(configuration: .default))
     var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         bind()
         viewModel.fetch()
+    }
+    
+    private func configureCollectionView() {
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemInfoCell", for: indexPath) as? ItemInfoCell else { return nil }
+            cell.configure(item: item)
+            return cell
+        })
+        
+        collectionView.collectionViewLayout = layout()
+        
+        // snapshot 초기화
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([], toSection: .main)
+        dataSource.apply(snapshot)
+    }
+    
+    // 실제 snapshot에 데이터 전송
+    private func applyItems(_ items: [ItemInfo]) {
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(items, toSection: .main)
+        dataSource.apply(snapshot)
     }
     
     private func bind() {
         viewModel.$items
             .receive(on: RunLoop.main)
             .sink { items in
-                print("update collection view >>> \(items)")
+                self.applyItems(items)
             }
             .store(in: &subscriptions)
         
@@ -37,6 +70,18 @@ class HomeViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             .store(in: &subscriptions)
-
+    }
+    
+    private func layout() -> UICollectionViewCompositionalLayout {
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(140))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(140))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }

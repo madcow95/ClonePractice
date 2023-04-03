@@ -120,7 +120,7 @@
         <scene sceneID="X9P-d0-WcA">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Home" referencedIdentifier="HomeViewController" id="vhw-3u-5YW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kC1-nl-gng"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="homekit" catalog="system" id="kC1-nl-gng"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gg0-9O-nTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,6 +129,7 @@
     </scenes>
     <resources>
         <image name="doc" catalog="system" width="115" height="128"/>
+        <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="rectangle.3.group" catalog="system" width="128" height="80"/>

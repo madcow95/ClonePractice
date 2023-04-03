@@ -29,6 +29,7 @@
 		CD19766B29D85F300098A35E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19766A29D85F300098A35E /* ChatViewController.swift */; };
 		CD36AA6729DAF105003E5D38 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD36AA6529DAF105003E5D38 /* Home.storyboard */; };
 		CD36AA6929DAF13A003E5D38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36AA6829DAF13A003E5D38 /* HomeViewModel.swift */; };
+		CD36AA6B29DAFBD5003E5D38 /* ItemInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36AA6A29DAFBD5003E5D38 /* ItemInfoCell.swift */; };
 		CDBA8BC729D9AED500DDADB7 /* CustomBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA8BC629D9AED500DDADB7 /* CustomBarItem.swift */; };
 		CDBA8BC929D9B6F700DDADB7 /* UIBarButtonItem+CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA8BC829D9B6F700DDADB7 /* UIBarButtonItem+CustomView.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		CD19766A29D85F300098A35E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		CD36AA6629DAF105003E5D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CarrotHomeTab/Views/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		CD36AA6829DAF13A003E5D38 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CD36AA6A29DAFBD5003E5D38 /* ItemInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoCell.swift; sourceTree = "<group>"; };
 		CDBA8BC629D9AED500DDADB7 /* CustomBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarItem.swift; sourceTree = "<group>"; };
 		CDBA8BC829D9B6F700DDADB7 /* UIBarButtonItem+CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+CustomView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 				CD36AA6529DAF105003E5D38 /* Home.storyboard */,
 				CD19765C29D851D90098A35E /* HomeViewController.swift */,
 				CD36AA6829DAF13A003E5D38 /* HomeViewModel.swift */,
+				CD36AA6A29DAFBD5003E5D38 /* ItemInfoCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				CDBA8BC729D9AED500DDADB7 /* CustomBarItem.swift in Sources */,
 				CDBA8BC929D9B6F700DDADB7 /* UIBarButtonItem+CustomView.swift in Sources */,
 				9402EE1228673D9C00D33FDD /* Resource.swift in Sources */,
+				CD36AA6B29DAFBD5003E5D38 /* ItemInfoCell.swift in Sources */,
 				CD19765F29D851F10098A35E /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
