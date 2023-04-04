@@ -8,48 +8,50 @@
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController {
 
-    // UIViewCell 연결
+class HomeViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     typealias Item = ItemInfo
     enum Section {
         case main
     }
-    var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    
+    var datasource: UICollectionViewDiffableDataSource<Section, Item>!
+
     let viewModel: HomeViewModel = HomeViewModel(network: NetworkService(configuration: .default))
     var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        viewModel.fetch()
         bind()
+        viewModel.fetch()
     }
     
     private func configureCollectionView() {
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
-            
+        datasource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemInfoCell", for: indexPath) as? ItemInfoCell else { return nil }
+            
             cell.configure(item: item)
             return cell
         })
         
         collectionView.collectionViewLayout = layout()
         
-        // snapshot 초기화
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
         snapshot.appendItems([], toSection: .main)
-        dataSource.apply(snapshot)
+        datasource.apply(snapshot)
+        
+//        collectionView.delegate = self
     }
     
-    // 실제 snapshot에 데이터 전송
     private func applyItems(_ items: [ItemInfo]) {
-        var snapshot = dataSource.snapshot()
+        var snapshot = datasource.snapshot()
         snapshot.appendItems(items, toSection: .main)
-        dataSource.apply(snapshot)
+        print(datasource!)
+//        datasource.apply(snapshot)
     }
     
     private func bind() {
@@ -57,23 +59,19 @@ class HomeViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { items in
                 self.applyItems(items)
-            }
-            .store(in: &subscriptions)
+            }.store(in: &subscriptions)
         
         viewModel.itemTapped
             .sink { item in
-                // StoryBoard
                 let sb = UIStoryboard(name: "Detail", bundle: nil)
-        
-                // ViewController
                 let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+//                vc.viewModel = DetailViewModel(network: NetworkService(configuration: .default), itemInfo: item)
                 self.navigationController?.pushViewController(vc, animated: true)
-            }
-            .store(in: &subscriptions)
+            }.store(in: &subscriptions)
+        
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
-        
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(140))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
@@ -81,7 +79,6 @@ class HomeViewController: UIViewController {
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        
         return UICollectionViewCompositionalLayout(section: section)
     }
 }
