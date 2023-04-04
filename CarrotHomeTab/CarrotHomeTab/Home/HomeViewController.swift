@@ -24,8 +24,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        bind()
         viewModel.fetch()
+        bind()
     }
     
     private func configureCollectionView() {
