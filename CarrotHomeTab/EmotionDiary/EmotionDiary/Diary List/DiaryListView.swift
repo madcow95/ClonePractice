@@ -8,10 +8,23 @@
 import SwiftUI
 
 struct DiaryListView: View {
+    
+    @State var list: [MoodDiary] = MoodDiary.list
+    
+    let layout: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     var body: some View {
-        Text("Hello, Emotion Diary World")
-            .font(.system(size: 24, weight: .bold))
-            .padding()
+        LazyVGrid(columns: layout) {
+            ForEach(list) { item in
+                MoodDiaryCell(diary: item)
+                    .frame(height: 50)
+            }
+        }
     }
 }
 
