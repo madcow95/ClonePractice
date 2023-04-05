@@ -23,6 +23,7 @@
 		948F905428700A8800F90257 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F905228700A8800F90257 /* Storage.swift */; };
 		948F905528700A8800F90257 /* MoodDiaryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F905328700A8800F90257 /* MoodDiaryStorage.swift */; };
 		CD8BFCA029DDA4A600CAED08 /* MoodDiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BFC9F29DDA4A600CAED08 /* MoodDiaryCell.swift */; };
+		CD8BFCA229DDA67A00CAED08 /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BFCA129DDA67A00CAED08 /* DiaryListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		948F905228700A8800F90257 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		948F905328700A8800F90257 /* MoodDiaryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodDiaryStorage.swift; sourceTree = "<group>"; };
 		CD8BFC9F29DDA4A600CAED08 /* MoodDiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDiaryCell.swift; sourceTree = "<group>"; };
+		CD8BFCA129DDA67A00CAED08 /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				948F9014287008D100F90257 /* DiaryListView.swift */,
+				CD8BFCA129DDA67A00CAED08 /* DiaryListViewModel.swift */,
 				CD8BFC9F29DDA4A600CAED08 /* MoodDiaryCell.swift */,
 			);
 			path = "Diary List";
@@ -332,6 +335,7 @@
 				948F9048287009DA00F90257 /* DiaryDetailsView.swift in Sources */,
 				948F904F28700A2C00F90257 /* Mood.swift in Sources */,
 				948F905428700A8800F90257 /* Storage.swift in Sources */,
+				CD8BFCA229DDA67A00CAED08 /* DiaryListViewModel.swift in Sources */,
 				948F904D28700A1700F90257 /* MoodDiary.swift in Sources */,
 				948F9046287009CB00F90257 /* DiaryTextInputView.swift in Sources */,
 				948F9042287009AE00F90257 /* DiaryDateInputView.swift in Sources */,
