@@ -17,6 +17,16 @@ struct DiaryTextInputView: View {
             TextEditor(text: $vm.text)
                 .focused($focused)
                 .border(.gray.opacity(0.2), width: 2)
+            
+            Button {
+                vm.completed()
+            } label: {
+                Text("Save And Close")
+                    .frame(width: 200, height: 80)
+                    .foregroundColor(.white)
+                    .background(Color.pink)
+                    .cornerRadius(40)
+            }
         }
         .padding()
         .onAppear {
@@ -27,6 +37,6 @@ struct DiaryTextInputView: View {
 
 struct DiaryTextInputView_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryTextInputView(vm: DiaryViewModel(isPresented: .constant(false)))
+        DiaryTextInputView(vm: DiaryViewModel(isPresented: .constant(false), diaryList: .constant(MoodDiary.list)))
     }
 }

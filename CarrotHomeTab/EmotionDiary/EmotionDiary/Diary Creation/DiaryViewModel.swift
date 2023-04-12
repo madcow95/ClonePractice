@@ -12,7 +12,9 @@ import Combine
 // StateObject로 사용할 것이기 때문에 OjbervableObject 선언
 final class DiaryViewModel: ObservableObject {
     
+    @Published var diaryList: Binding<[MoodDiary]>
     @Published var diary: MoodDiary = MoodDiary(date: "", text: "", mood: .great)
+    
     @Published var date: Date = Date()
     @Published var mood: Mood = .great
     @Published var text: String = ""
@@ -20,8 +22,9 @@ final class DiaryViewModel: ObservableObject {
     
     var subscriptions = Set<AnyCancellable>()
     
-    init(isPresented: Binding<Bool>) {
+    init(isPresented: Binding<Bool>, diaryList: Binding<[MoodDiary]>) {
         self.isPresented = isPresented
+        self.diaryList = diaryList
         
         $date.sink { date in
             self.update(date: date)
@@ -53,5 +56,15 @@ final class DiaryViewModel: ObservableObject {
     
     private func update(text: String) {
         self.diary.text = text
+    }
+    
+    func completed() {
+        guard diary.date.isEmpty == false else { return }
+        
+        // 저장하고
+        diaryList.wrappedValue.append(diary)
+        
+        // Modal을 닫는다.
+        isPresented.wrappedValue = false
     }
 }

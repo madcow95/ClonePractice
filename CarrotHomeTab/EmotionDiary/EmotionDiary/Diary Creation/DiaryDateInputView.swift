@@ -52,6 +52,6 @@ struct DiaryDateInputView: View {
 
 struct DiaryDateInputView_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryDateInputView(vm: DiaryViewModel(isPresented: .constant(false)))
+        DiaryDateInputView(vm: DiaryViewModel(isPresented: .constant(false), diaryList: .constant(MoodDiary.list)))
     }
 }
